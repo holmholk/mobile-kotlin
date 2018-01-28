@@ -16,6 +16,7 @@ class TurtleApplication : Application() {
         lockManager.enableAppLock(this, LockActivity::class.java)
         lockManager.appLock.timeout = 1000 * 5 // 5sec
         lockManager.appLock.setOnlyBackgroundTimeout(true)
+        lockManager.appLock.setShouldShowForgot(false)
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val darkModeEnabled = sharedPreferences.getBoolean(getString(R.string.darkmode_setting), false)
