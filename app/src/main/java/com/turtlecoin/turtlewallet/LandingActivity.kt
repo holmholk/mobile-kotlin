@@ -7,7 +7,6 @@ import android.os.Handler
 import android.view.View
 import kotlinx.android.synthetic.main.activity_landing.*
 import com.github.omadahealth.lollipin.lib.managers.AppLock
-import com.github.omadahealth.lollipin.lib.managers.LockManager
 import android.widget.Toast
 
 

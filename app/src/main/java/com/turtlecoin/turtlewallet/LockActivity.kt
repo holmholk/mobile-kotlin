@@ -1,12 +1,7 @@
 package com.turtlecoin.turtlewallet
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.widget.Toast
-import com.github.omadahealth.lollipin.lib.managers.AppLock
 import com.github.omadahealth.lollipin.lib.managers.AppLockActivity
-import com.github.omadahealth.lollipin.lib.managers.LockManager
 
 
 
