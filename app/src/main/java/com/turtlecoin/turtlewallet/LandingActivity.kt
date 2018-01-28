@@ -8,9 +8,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_landing.*
 import com.github.omadahealth.lollipin.lib.managers.AppLock
 import com.github.omadahealth.lollipin.lib.managers.LockManager
-
-
-
+import android.widget.Toast
 
 
 /**
@@ -38,8 +36,6 @@ class LandingActivity : AppCompatActivity() {
         supportActionBar?.show()
         fullscreen_content_controls.visibility = View.VISIBLE
     }
-    private var mVisible: Boolean = false
-    private val mHideRunnable = Runnable { hide() }
 
     override fun onResume() {
         super.onResume()
@@ -51,64 +47,36 @@ class LandingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_landing)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        mVisible = true
-
-
     }
 
     val REQUEST_CODE_ENABLE = 11
 
     fun signInOnClick(view: View) {
+        val intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun createProfileOnClick(view: View) {
         val intent = Intent(this, LockActivity::class.java)
         intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK)
         startActivityForResult(intent, REQUEST_CODE_ENABLE)
     }
 
-
     override fun onPostResume() {
         super.onPostResume()
-        delayedHide(100)
-    }
-
-    private fun toggle() {
-        if (mVisible) {
-            hide()
-        } else {
-            show()
-        }
+        hide()
     }
 
     private fun hide() {
         // Hide UI first
         supportActionBar?.hide()
         fullscreen_content_controls.visibility = View.GONE
-        mVisible = false
 
         // Schedule a runnable to remove the status and navigation bar after a delay
         mHideHandler.removeCallbacks(mShowPart2Runnable)
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY.toLong())
     }
 
-    private fun show() {
-        // Show the system bar
-        welcome_message.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-        mVisible = true
-
-        // Schedule a runnable to display UI elements after a delay
-        mHideHandler.removeCallbacks(mHidePart2Runnable)
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY.toLong())
-    }
-
-    /**
-     * Schedules a call to hide() in [delayMillis], canceling any
-     * previously scheduled calls.
-     */
-    private fun delayedHide(delayMillis: Int) {
-        mHideHandler.removeCallbacks(mHideRunnable)
-        mHideHandler.postDelayed(mHideRunnable, delayMillis.toLong())
-    }
 
     companion object {
         /**
@@ -128,5 +96,13 @@ class LandingActivity : AppCompatActivity() {
          * and a change of the status and navigation bar.
          */
         private val UI_ANIMATION_DELAY = 300
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when (requestCode) {
+            REQUEST_CODE_ENABLE -> Toast.makeText(this, "PinCode enabled", Toast.LENGTH_SHORT).show()
+        }
     }
 }

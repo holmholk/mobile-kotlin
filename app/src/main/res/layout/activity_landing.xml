@@ -57,6 +57,7 @@
             android:gravity="center"
             android:text="@string/create_profile"
             android:textColor="@color/white"
+            android:onClick="createProfileOnClick"
             android:padding="10dp"/>
         <View
             android:layout_width="wrap_content"

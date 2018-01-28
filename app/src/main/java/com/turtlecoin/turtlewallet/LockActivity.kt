@@ -1,7 +1,10 @@
 package com.turtlecoin.turtlewallet
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.github.omadahealth.lollipin.lib.managers.AppLock
 import com.github.omadahealth.lollipin.lib.managers.AppLockActivity
 import com.github.omadahealth.lollipin.lib.managers.LockManager
 
@@ -19,15 +22,13 @@ class LockActivity : AppLockActivity() {
     }
 
     override fun onPinFailure(attempts: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(this, "wrong pin", Toast.LENGTH_LONG).show()
     }
 
     override fun showForgotDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onPinSuccess(attempts: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

@@ -11,13 +11,14 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.github.omadahealth.lollipin.lib.PinCompatActivity
 import com.turtlecoin.turtlewallet.addressbook.AddressBookFragment
 import com.turtlecoin.turtlewallet.networkinfo.NetworkInfoFragment
 import com.turtlecoin.turtlewallet.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
 
-class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class DashboardActivity : PinCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var currentFragment : Fragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
