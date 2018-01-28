@@ -16,6 +16,7 @@ import android.widget.Toast
  * status bar and navigation/system bar) with user interaction.
  */
 class LandingActivity : AppCompatActivity() {
+
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -45,11 +46,8 @@ class LandingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_landing)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
 
-    val REQUEST_CODE_ENABLE = 11
 
     fun signInOnClick(view: View) {
         val intent = Intent(this, DashboardActivity::class.java)
@@ -96,9 +94,12 @@ class LandingActivity : AppCompatActivity() {
          * and a change of the status and navigation bar.
          */
         private val UI_ANIMATION_DELAY = 300
+
+        private const val REQUEST_CODE_ENABLE = 11
+
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
