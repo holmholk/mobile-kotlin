@@ -7,6 +7,7 @@
     <color name="mediumTurtleGreen">#339D64</color>
     <color name="mediumGrayText">#4d524d</color>
     <color name="white">#FFF</color>
+    <color name="transparent">#00000000</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

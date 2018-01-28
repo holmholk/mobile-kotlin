@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.turtlecoin.turtlewallet.LockActivity"
+    android:background="@color/mediumGrayText">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/black_overlay"/>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+            <!-- Don't rename ids of following elements. They are required to make a custom lock activity -->
+            <TextView
+                android:id="@+id/pin_code_step_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:gravity="bottom"
+                android:text="Enter Code"
+                android:layout_weight="0.2"/>
+
+            <ImageView
+                android:id="@+id/pin_code_fingerprint_imageview"
+                android:layout_width="1dp"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:id="@+id/pin_code_fingerprint_textview"
+                android:layout_width="1dp"
+                android:layout_height="1dp"/>
+
+            <com.github.omadahealth.lollipin.lib.views.PinCodeRoundView
+                android:id="@+id/pin_code_round_view"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/page_margin"
+                android:gravity="center"
+                android:layout_weight="0.2"
+                app:lp_empty_pin_dot="@drawable/circle_outline"
+                app:lp_full_pin_dot="@drawable/circle_solid"/>
+
+            <TextView
+                android:id="@+id/pin_code_forgot_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mediumTurtleGreen"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/page_margin"
+                android:text="Forgot?"/>
+
+            <com.github.omadahealth.lollipin.lib.views.KeyboardView
+                android:id="@+id/pin_code_keyboard_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+</RelativeLayout>

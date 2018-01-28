@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import kotlinx.android.synthetic.main.activity_landing.*
+import com.github.omadahealth.lollipin.lib.managers.AppLock
+import com.github.omadahealth.lollipin.lib.managers.LockManager
+
+
+
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -35,6 +41,9 @@ class LandingActivity : AppCompatActivity() {
     private var mVisible: Boolean = false
     private val mHideRunnable = Runnable { hide() }
 
+    override fun onResume() {
+        super.onResume()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +56,12 @@ class LandingActivity : AppCompatActivity() {
 
     }
 
+    val REQUEST_CODE_ENABLE = 11
+
     fun signInOnClick(view: View) {
-        val intent = Intent(this, DashboardActivity::class.java)
-        startActivity(intent)
+        val intent = Intent(this, LockActivity::class.java)
+        intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK)
+        startActivityForResult(intent, REQUEST_CODE_ENABLE)
     }
 
 
