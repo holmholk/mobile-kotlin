@@ -15,6 +15,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,9 +32,10 @@ android {
 
 ext{
     retrofitVersion = "2.3.0"
-    supportLibVersion = "26.0.2"
+    supportLibVersion = "26.1.0"
     jacksonVersion = "2.9.0"
     coroutinesVersion = "0.22"
+    archComponents = "1.1.0"
 }
 
 dependencies {
@@ -45,6 +52,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$supportLibVersion"
     implementation "com.android.support:cardview-v7:$supportLibVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation "com.android.support:preference-v14:$supportLibVersion"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
@@ -52,6 +60,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
     implementation 'com.journeyapps:zxing-android-embedded:+'
+    implementation "android.arch.lifecycle:extensions:$archComponents"
+    kapt "android.arch.lifecycle:compiler:$archComponents"
     implementation "android.arch.persistence.room:runtime:+"
     kapt "android.arch.persistence.room:compiler:+"
 
