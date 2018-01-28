@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import com.github.omadahealth.lollipin.lib.PinCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.turtlecoin.turtlewallet.db.ContactDatabase
 import com.turtlecoin.turtlewallet.util.AddressHelper
@@ -15,7 +16,7 @@ import kotlinx.coroutines.experimental.Job
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
 
-class SendCoinActivity : AppCompatActivity() {
+class SendCoinActivity : PinCompatActivity() {
     private var job: Job? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

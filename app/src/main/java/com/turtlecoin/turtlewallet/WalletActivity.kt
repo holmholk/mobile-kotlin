@@ -7,10 +7,11 @@ import kotlinx.android.synthetic.main.activity_wallet.*
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CollapsingToolbarLayout
 import android.view.View
+import com.github.omadahealth.lollipin.lib.PinCompatActivity
 import com.turtlecoin.turtlewallet.model.ContactItem
 import java.io.Serializable
 
-class WalletActivity : AppCompatActivity() {
+class WalletActivity : PinCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

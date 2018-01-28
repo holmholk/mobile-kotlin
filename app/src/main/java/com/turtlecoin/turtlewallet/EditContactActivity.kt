@@ -10,6 +10,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.turtlecoin.turtlewallet.util.AddressHelper
 import kotlinx.android.synthetic.main.activity_edit_contact.*
 import android.app.Activity
+import com.github.omadahealth.lollipin.lib.PinCompatActivity
 import com.turtlecoin.turtlewallet.db.ContactDatabase
 import com.turtlecoin.turtlewallet.model.ContactItem
 import kotlinx.coroutines.experimental.CommonPool
@@ -19,7 +20,7 @@ import kotlinx.coroutines.experimental.withContext
 
 
 // It can be creating a new contact or editing an existing contact.
-class EditContactActivity : AppCompatActivity() {
+class EditContactActivity : PinCompatActivity() {
 
     var update: Boolean = false
     var contact: ContactItem? = null

@@ -17,15 +17,15 @@ import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.github.omadahealth.lollipin.lib.PinCompatActivity
 import com.turtlecoin.turtlewallet.db.ContactDatabase
 import com.turtlecoin.turtlewallet.model.ContactItem
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 
 
-class ReceiveAddressActivity : AppCompatActivity() {
+class ReceiveAddressActivity : PinCompatActivity() {
 
-    // TODO get editable flag from intent
     var editable = false
 
     var contact: ContactItem? = null
