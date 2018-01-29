@@ -41,7 +41,7 @@
 
             <com.github.omadahealth.lollipin.lib.views.PinCodeRoundView
                 android:id="@+id/pin_code_round_view"
-                android:layout_width="300dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/page_margin"
                 android:gravity="center"
