@@ -8,6 +8,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_landing.*
 import com.github.omadahealth.lollipin.lib.managers.AppLock
 import android.widget.Toast
+import com.github.omadahealth.lollipin.lib.managers.LockManager
 
 
 /**
@@ -17,6 +18,7 @@ import android.widget.Toast
 class LandingActivity : AppCompatActivity() {
 
     private val mHideHandler = Handler()
+    private var isPinSet = false
     private val mHidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
 
@@ -39,21 +41,45 @@ class LandingActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
+
+        val lockManager = LockManager.getInstance()
+        isPinSet = lockManager.appLock.isPasscodeSet
+
+        if (isPinSet) {
+            create_profile.visibility = View.VISIBLE
+            sign_in.setText(R.string.sign_in)
+        } else {
+            create_profile.visibility = View.INVISIBLE
+            sign_in.setText(R.string.create_profile)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_landing)
+
     }
 
 
     fun signInOnClick(view: View) {
+        if (isPinSet) {
+            goToDashboard()
+        } else {
+            createNewProfile()
+        }
+    }
+
+    fun createProfileOnClick(view: View) {
+        createNewProfile()
+    }
+
+    private fun goToDashboard() {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
 
-    fun createProfileOnClick(view: View) {
+    private fun createNewProfile() {
         val intent = Intent(this, LockActivity::class.java)
         intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK)
         startActivityForResult(intent, REQUEST_CODE_ENABLE)
@@ -102,7 +128,7 @@ class LandingActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
-            REQUEST_CODE_ENABLE -> Toast.makeText(this, "PinCode enabled", Toast.LENGTH_SHORT).show()
+            REQUEST_CODE_ENABLE -> goToDashboard()
         }
     }
 }
