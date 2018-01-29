@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.turtlecoin.turtlewallet.LockActivity">
 
-
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
+            <ImageView
+                android:id="@+id/pin_code_logo_imageview"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:tint="@color/mediumTurtleGreen"
+                android:src="@drawable/ic_turtle_shield"
+                android:padding="15dp"
+                android:layout_weight="0.3"/>
             <!-- Don't rename ids of following elements. They are required to make a custom lock activity -->
             <TextView
                 android:id="@+id/pin_code_step_textview"
@@ -20,8 +27,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:gravity="bottom"
-                android:text="Enter Code"
-                android:layout_weight="0.2"/>
+                android:text="Enter Code"/>
 
             <ImageView
                 android:id="@+id/pin_code_fingerprint_imageview"
@@ -39,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/page_margin"
                 android:gravity="center"
-                android:layout_weight="0.2"
+                android:layout_weight="0.1"
                 app:lp_empty_pin_dot="@drawable/circle_outline"
                 app:lp_full_pin_dot="@drawable/circle_solid"/>
 
