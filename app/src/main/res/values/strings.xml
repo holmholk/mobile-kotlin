@@ -62,4 +62,6 @@
     <string name="darkmode_setting">darkmode_enabled</string>
     <string name="title_darkmode_preference">Dark Mode</string>
     <string name="setting_appearance_header">Appearance</string>
+    <string name="security">Security</string>
+    <string name="reset_pin">Reset PIN</string>
 </resources>
